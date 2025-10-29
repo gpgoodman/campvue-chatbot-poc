@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import { parseIntent } from "./utils/parseIntent.js";
+import { searchCampgrounds } from "./db/searchCampgrounds.js";
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -18,13 +19,24 @@ app.get("/", (_req, res) => {
     });
 });
 
-app.post("/search", (req, res) => {
-    const q = (req.body && req.body.q) || "";
+app.post("/search", async (req, res) => {              // ← make handler async
+    const { q = "", page = 1, pageSize = 20 } = req.body || {};
     if (!q || typeof q !== "string") {
         return res.status(400).json({ ok: false, error: "Body must include { q: string }" });
     }
+
     const parsed = parseIntent(q);
-    res.json({ ok: true, ...parsed });
+    const hasFilters = parsed?.filters && Object.keys(parsed.filters).length > 0;
+
+    try {
+        if (hasFilters) {
+            const result = await searchCampgrounds(parsed.filters, { page, pageSize });
+            return res.json({ ok: true, parsed, result });
+        }
+        return res.json({ ok: true, parsed, result: null });
+    } catch (e) {
+        return res.status(500).json({ ok: false, error: e.message, parsed });
+    }
 });
 
 app.get("/healthz", (_req, res) => res.status(204).end());
