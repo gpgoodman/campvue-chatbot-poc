@@ -1,0 +1,60 @@
+# ── Node / package managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Lockfile policy: keep it committed for reproducible installs
+# (do NOT ignore package-lock.json)
+
+# ── Env & local config
+.env
+.env.*.local
+
+# ── Logs & runtime data
+logs/
+*.log
+*.log.*
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# ── Coverage / test output
+coverage/
+.nyc_output/
+
+# ── Build outputs / caches
+dist/
+build/
+.next/
+.out/
+.vercel/
+.cache/
+tmp/
+temp/
+.tmp/
+.temp/
+
+# ── OS / IDE
+.DS_Store
+.idea/
+*.iml
+.vscode/
+
+# ── Tooling caches
+.eslintcache
+parcel-cache/
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+.node_repl_history
+
+# ── DB / scratch files (just in case)
+*.sqlite
+*.db
+*.db-journal
+
+# ── Supabase CLI (temporary dirs)
+supabase/.temp/
+supabase/.branches/
