@@ -1,23 +1,29 @@
 // Minimal gazetteers to start; easy to extend later.
 
 export const STATES = {
-    arizona: "AZ",
-    california: "CA",
-    colorado: "CO",
-    nevada: "NV",
-    newmexico: "NM",
-    oregon: "OR",
-    utah: "UT",
-    washington: "WA",
+    arizona: "Arizona",
+    california: "California",
+    colorado: "Colorado",
+    nevada: "Nevada",
+    newmexico: "New Mexico",
+    idaho:"Idaho",
+    montana: "Montana",
+    oregon: "Oregon",
+    utah: "Utah",
+    washington: "Washington",
+    wyoming: "Wyoming",
     // add more as you go (keep lowercase keys; collapse spaces e.g., "new york" -> "newyork")
 };
 
 export const PARK_TYPES = {
-    "state park": "state_park",
-    "state parks": "state_park",
-    "national park": "national_park",
-    "national parks": "national_park",
-    "national forest": "national_forest",
+    "state park": "state",
+    "state parks": "state",
+    "national park": "national",
+    "national parks": "national",
+    "national forest": "national forest",
+    "national forests": "national forest",
+    "national monument": "national monument",
+    "national monuments": "national monument",
     "blm": "blm",
 };
 
