@@ -31,8 +31,27 @@ export async function searchCampgrounds(filters, { page = 1, pageSize = 20 } = {
     const amenityMap = {
         has_tent_pads: "Tent Pads",
         has_showers: "Showers",
-        has_hookups: "Hookups",
-        has_accessible: "Accessible", // when you add this amenity
+        has_hookups: "Electric Hook Ups",
+        has_accessible: "Accessible Sites",
+        has_laundry: "Laundry",
+        has_drinking_water: "Drinking Water",
+        has_fire_ring: "Fire Ring",
+        has_picnic_table: "Picnic Table",
+        has_rv: "RVs",
+        has_tents: "Tents",
+        has_general_store: "General Store",
+        has_flushing_toilets: "Flushing Toilets",
+        has_shade_shelter: "Shade Shelters",
+        has_fuel: "Fuel",
+        has_food: "Food",
+        has_utility_sink: "Utility Sink",
+        has_vault_toilets: "Vault Toilets",
+        has_fire_wood: "Fire Wood",
+        has_trash_collection: "Trash Collection",
+        has_river_access: "River Access",
+        has_lake_access: "Lake Access",
+        has_dump_station: "Dump Station",
+        has_water_spigot: "Water Spigot",
     };
 
     const requiredAmenityNames = Object.entries(filters || {})
