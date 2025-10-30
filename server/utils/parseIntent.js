@@ -1,4 +1,4 @@
-import { STATES, PARK_TYPES, AMENITY_FLAGS, STOPWORDS } from "./constants.js";
+import { STATES, PARK_TYPES, AMENITY_FLAGS, ACTIVITY_FLAGS, STOPWORDS } from "./constants.js";
 
 function preprocess(input) {
     return input
@@ -19,7 +19,7 @@ export function parseIntent(userText) {
     const filters = {
         state: null,
         park_type: null,          // array later if multiple
-        // amenity flags added dynamically
+        // amenity and activity flags added dynamically
     };
     let residue = text;
 
@@ -52,6 +52,15 @@ export function parseIntent(userText) {
 
     // --- AMENITY FLAGS (+ synonyms) ---
     for (const { key, value, terms } of AMENITY_FLAGS) {
+        const re = new RegExp(`\\b(${terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\b`, "i");
+        if (re.test(residue)) {
+            filters[key] = value;
+            residue = residue.replace(re, " ");
+        }
+    }
+
+    // --- ACTIVITY FLAGS (+ synonyms) ---
+    for (const { key, value, terms } of ACTIVITY_FLAGS) {
         const re = new RegExp(`\\b(${terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})\\b`, "i");
         if (re.test(residue)) {
             filters[key] = value;
