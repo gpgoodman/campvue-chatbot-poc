@@ -51,9 +51,29 @@ export const AMENITY_FLAGS = [
     { key: "has_lake_access", value: true, terms: ["lake", "lake access"] },
     { key: "has_dump_station", value: true, terms: ["dump", "dump station", "waste station", "waste water disposal","sewage"] },
     { key: "has_water_spigot", value: true, terms: ["water spigot", "spigot","water faucet","water spout" ] },
-
-
 ];
+
+export const  ACTIVITY_FLAGS = [
+    { key: "has_fishing", value: true, terms: ["fish", "fishing", "angling"] },
+    { key: "has_white_water_rafting", value: true, terms: ["white water rafting", "river rafting", "rafting"] },
+    { key: "has_hiking", value: true, terms: ["hike", "hikes", "hiking", "trailhead", "trailheads"] },
+    { key: "has_mountain_biking", value: true, terms: ["mountain bike", "mountain bikes", "mountain biking"] },
+    { key: "has_biking", value: true, terms: ["bikes", "bicycles", "biking", "bicycling"] },
+    { key: "has_scenic_drives", value: true, terms: ["scenic drive", "scenic drives", "scenic driving"] },
+    { key: "has_mountaineering", value: true, terms: ["mountaineering", "mountain climbing", "mountaineer", "mountain hike"] },
+    { key: "has_picnicking", value: true, terms: ["picnic","picnics", "picnicking"] },
+    { key: "has_rock_climbing", value: true, terms: ["rock climbing", "rock climbers", "rock climb", "climbing"] },
+    { key: "has_star_gazing", value: true, terms: ["stars", "night sky", "night skies","telescope", "telescopes", "star gazing"] },
+    { key: "has_boating", value: true, terms: ["boat", "boats", "boating", "canoeing", "canoes", "kayak", "kayaking"] },
+    { key: "has_bird_watching", value: true, terms: ["birds", "bird watching", "watch birds", "birding"] },
+    { key: "has_scenic_overlooks", value: true, terms: ["scenic", "scenic overlook", "scenic overlooks", "scenery"] },
+    { key: "has_amphitheater", value: true, terms: ["amphitheater", "amphitheaters", "ranger programs", "ranger talks"] },
+    { key: "has_swimming", value: true, terms: ["swim", "swims", "swimming", "pool", "pools"] },
+    { key: "has_historical_sites", value: true, terms: ["history", "historical", "historical sites", "ghosttown", "ghosttowns","ghost town", "ghost towns"] },
+    { key: "has_offroading", value: true, terms: ["4x4", "ohv", "ohvs", "off road", "offroad", "off roading", "offroading", "dirt road", "dirt roads"] },
+    { key: "has_wildlife_viewing", value: true, terms: ["wildlife", "animals", "wildlife viewing", "wild animals"] },
+    { key: "has_photography", value: true, terms: ["photography", "photo", "photos","landscape photography"] },
+]
 
 export const STOPWORDS = new Set([
     "find","show","me","a","an","the","some","with","and","or","near","in","on","at","to","for","please",

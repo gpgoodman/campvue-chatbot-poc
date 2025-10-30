@@ -63,6 +63,37 @@ export async function searchCampgrounds(filters, { page = 1, pageSize = 20 } = {
         query = query.contains("amenities", requiredAmenityNames);
     }
 
+    const activityMap = {
+        has_fishing: "Fishing",
+        has_white_water_rafting: "White Water Rafting",
+        has_hiking: "Hiking",
+        has_mountain_biking: "Mountain Biking",
+        has_biking: "Biking",
+        has_scenic_drives: "Scenic Driving",
+        has_mountaineering: "Mountaineering",
+        has_picnicking: "Picnicking",
+        has_rock_climbing: "Rock Climbing",
+        has_star_gazing: "Star Gazing",
+        has_boating: "Boating",
+        has_bird_watching: "Bird Watching",
+        has_scenic_overlooks: "Scenic Overlooks",
+        has_amphitheater: "Amphitheater",
+        has_swimming: "Swimming",
+        has_historical_sites: "Historical Site",
+        has_offroading: "Off-Roading",
+        has_wildlife_viewing: "Wildlife Viewing",
+        has_photography: "Photography",
+    };
+
+
+    const requiredActivityNames = Object.entries(filters || {})
+        .filter(([k, v]) => v === true && activityMap[k])
+        .map(([k]) => activityMap[k]);
+
+    if (requiredActivityNames.length) {
+        query = query.contains("activities", requiredActivityNames);
+    }
+
     query = query.range(from, to).order("name", { ascending: true });
 
     const { data, error, count } = await query;
